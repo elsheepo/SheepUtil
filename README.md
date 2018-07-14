@@ -1,2 +1,2 @@
-## BlackJack
-A simple Java console app to simulate a game of Blackjack.
+## SheepUtil
+A collection of utility methods written by yours truly.
