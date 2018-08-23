@@ -93,4 +93,33 @@ public class Tools {
         return dateTimeFormatter.format(currentDateTime);
     }
 
+    /**
+     *  The rightSpot() method! I put this one together helping a fellow coder with an exam question.
+     *  it will return the int value stored in an array, in the event that all the previous values are less than, and
+     *  all the subsequent values are greater than.
+     * @param x
+     * @return
+     */
+    public static int rightSpot(int[] x) {
+        int result = -1;
+        int savedValue = 0;
+        try {
+            savedValue = x[0];
+
+            for (int i = 0; i < x.length; i++) {
+                if (i != (x.length - 1)) {
+                    if (x[i] > savedValue && x[i] < x[(i + 1)])
+                        result = i;
+                    savedValue = x[i];
+                } else {
+                    if (x[i] > savedValue)
+                        result = i;
+                }
+            }
+        } catch (NullPointerException e) {
+            System.out.println("NullPointerException occurred.");
+        }
+        return result;
+    }
+
 }
