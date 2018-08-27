@@ -1,5 +1,6 @@
 package Utilities;
 
+import java.io.*;
 import java.math.RoundingMode;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
@@ -122,4 +123,13 @@ public class Tools {
         return result;
     }
 
+    public static void writeToTextFile(File productsFile, String s) {
+        try (PrintWriter toTextFile = new PrintWriter(
+                new BufferedWriter(
+                        new FileWriter(productsFile, true)))) {
+            toTextFile.print(s);
+        } catch (IOException printWriterException) {
+            printWriterException.printStackTrace();
+        }
+    }
 }
