@@ -3,6 +3,7 @@ package Utilities;
 import java.io.*;
 import java.math.RoundingMode;
 import java.math.BigDecimal;
+import java.nio.file.Path;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -123,10 +124,11 @@ public class Tools {
         return result;
     }
 
-    public static void writeToTextFile(File productsFile, String s) {
+    public static void writeToTextFile(Path filePath, String s) {
+        File textFile = filePath.toFile();
         try (PrintWriter toTextFile = new PrintWriter(
                 new BufferedWriter(
-                        new FileWriter(productsFile, true)))) {
+                        new FileWriter(textFile, true)))) {
             toTextFile.print(s);
         } catch (IOException printWriterException) {
             printWriterException.printStackTrace();
